@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NP Empress</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+        body {
+            background-color: #090808;
+        }
+        header {
+            background-image: url('icon.jpg'); 
+            background-size: cover;
+            background-position: center;
+            padding: 2rem;
+            text-align: center;
+            color: white;
+        }
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+        .container {
+            display: flex;
+            padding: 2rem;
+        }
+        .sidebar {
+            width: 20%;
+            padding-right: 2rem;
+        }
+        .sidebar h1 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        .sidebar ul {
+            list-style: none;
+            margin-top: 2rem;
+        }
+        .sidebar ul li {
+            margin-bottom: 0.5rem;
+        }
+        .sidebar .sale {
+            background-color: #ffe600;
+            padding: 1rem;
+            border-radius: 50%;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+        .products {
+            width: 80%;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+        .product {
+            background-color: #fff;
+            width: calc(33% - 1.5rem);
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+        .product:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+        .product img {
+            width: 100%;
+            height: auto;
+        }
+        .product .label {
+            background-color: pink;
+            color: white;
+            padding: 0.25rem 0.5rem;
+            font-size: 0.8rem;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .product-info {
+            padding: 1rem;
+        }
+        .product-info h3 {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        .product-info p {
+            font-size: 0.9rem;
+            color: gray;
+        }
+        .product-info .price {
+            font-weight: bold;
+            color: #e74c3c;
+            margin-top: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+  
+    <header>
+        <h1>NP EMPRESS</h1>
+    </header>
+
+    <div class="container">
+        <div class="sidebar">
+            <h1>NP Empress</h1>
+            <div class="sale">8% SALE</div>
+            <p>Today Only,<br>Don't miss!</p>
+            <ul>
+                <li><a href="trousershort.html">Trouser Short</a></li>
+                <li><a href="dress.html">Dress</a></li>
+                <li><a href="pajama.html">Pajamas</a></li>
+                <li><a href="tshirt.html">Tees</a></li>
+                <li><a href="swimsuit.html">Swimsuit</a></li>
+                <li><a href="polo.html">Polo Blouse</a></li>
+            </ul>
+        </div>
+        <div class="products">
+            <div class="product">
+                <img src="pajama/pj1.jpg" alt="Short">
+                <div class="product-info">
+                    
+                    <div class="price">₱100</div>
+                </div>
+            </div>
+            <div class="product">
+                <img src="pajama/pj2.jpg" alt="Short">
+                <div class="product-info">
+                   
+                    <div class="price">₱100</div>
+                </div>
+            </div>
+            <div class="product">
+                <img src="pajama/pj3.jpg" alt="Short">
+                <div class="product-info">
+                   
+                    <div class="price">₱100</div>
+                </div>
+            </div>
+            <div class="product">
+                <img src="pajama/pj4.jpg" alt="Short">
+                <div class="product-info">
+                
+                    <div class="price">₱100</div>
+                </div>
+            </div>
+            <div class="product">
+                <img src="pajama/pj5.jpg" alt="Short">
+                <div class="product-info">
+                    
+                    <div class="price">₱100</div>
+                </div>
+            </div>
+            <div class="product">
+                <img src="pajama/pj6.jpg" alt="Short">
+                <div class="product-info">
+                   
+                    <div class="price">₱100</div>
+                </div>
+            </div>
+            <div class="product">
+                <img src="pajama/pj7.jpg" alt="Short">
+                <div class="product-info">
+                 
+                    <div class="price">₱100</div>
+                </div>
+            </div>
+            <div class="product">
+                <img src="pajama/pj8.jpg" alt="Short">
+                <div class="product-info">
+                    
+                    <div class="price">₱100</div>
+                </div>
+            </div>
+            <div class="product">
+                <img src="pajama/pj9.jpg" alt="Short">
+                <div class="product-info">
+                
+                    <div class="price">₱100</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const products = document.querySelectorAll('.product');
+
+        products.forEach(product => {
+            product.addEventListener('click', () => {
+                const price = product.querySelector('.price')?.innerText || "this item";
+                const confirmBuy = confirm(`Do you want to buy this Pajama for ${price}?`);
+                if (confirmBuy) {
+                    alert('Thank you for your purchase!');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
